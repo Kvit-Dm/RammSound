@@ -29,12 +29,6 @@ const startButton = new Elm(
     'LET\'S TEST IT OUT')
 startButton.setOnClick(()=>startGameBtn())
 
-// skeep entree
-// startGameBtn()
-
-
-// showFinalScoreFromStart ()
-
 // this fun is a shortcut for cheking final resume stage
 function showFinalScoreFromStart (){
     gameInfo.gameAlbumNumber = 9

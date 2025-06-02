@@ -17,11 +17,11 @@ export let gameInfo = {
     totalScore: 0
 }
 
-//TODO wrong naming
+
 let muzAlbumNumber
 
 export function renderNextLvl(code = '') {
-    //TODO check this if
+
     if (!gameInfo.findAnswer && code === '') {
         return
     }
@@ -45,13 +45,9 @@ export function renderNextLvl(code = '') {
 }
 
 function checkForStage() {
-    console.log('019', 'checkForStage')
-    //TODO check if if is nesesery
     if (!gameInfo.findAnswer) {
         return
     } else {
-
-
         gameInfo.gameAlbumNumber += 1
         gameInfo.findAnswer = false
         // checks for last album
@@ -59,8 +55,6 @@ function checkForStage() {
             gameInfo.showScoreStatus = true
             showFinalScore()
         } else {
-            //TODO  resetLvl()
-            // resetLvl()
             resetVariantsIcons()
         }
 
@@ -68,11 +62,8 @@ function checkForStage() {
 }
 
 function renderGameContent() {
-    console.log('023', 'renderGameContent')
-    console.log('018', muzAlbumNumber[0].albumImg)
     renderingArgumentsImport.randomImg.elm.src = muzAlbumNumber[0].albumImg
     renderingArgumentsImport.gameAnswerEmotion.elm.src = questionM
-    // console.log('011', renderingArgumentsImport.gameVariant1Mark.elm)
 
     renderingArgumentsImport.gameVariant1Name.elm.textContent = muzAlbumNumber[0].name
     renderingArgumentsImport.gameVariant2Name.elm.textContent = muzAlbumNumber[1].name
@@ -84,19 +75,13 @@ function renderGameContent() {
 }
 
 function ChooseRandomSong() {
-    console.log('muzAlbumNumber', muzAlbumNumber)
     return muzAlbumNumber[Math.floor(Math.random() * 6)]
 }
 
 export function ChooseOption(elm) {
-
-    // console.log('008.2', 'ChooseOption')
-    // console.log('008', elm, elm.this)
-    // console.log('009', chozenElm, (elm.textContent === chozenElm.name))
     let isPassed = (elm.textContent === chozenElm.name)
 
     if (isPassed) {
-        //TODO 1time job
         gameInfo.findAnswer = true
         countScore()
         renderScoreCount()
@@ -110,19 +95,15 @@ export function ChooseOption(elm) {
         elm.firstElementChild.classList.replace('fa-circle', 'fa-circle-check')
         elm.firstElementChild.classList.replace('fa-circle-xmark', 'fa-circle-check')
 
-
         renderingArgumentsImport.randomSongInfoSongControls.elm.pause()
-        console.log('031', )
         renderingArgumentsImport.gameAnswerName.elm.textContent = elm.lastChild.textContent
         renderingArgumentsImport.gameAnswerEmotion.elm.src = muzAlbumNumber[0].albumImg
         chendgeNextLvlButton()
     } else {
         RandomNinePlay()
-        console.log('030', )
         if(!gameInfo.findAnswer) renderingArgumentsImport.gameAnswerEmotion.elm.src = newEmotion()
 
         elm.firstElementChild.classList.replace('fa-circle', 'fa-circle-xmark')
-        // renderingArgumentsImport.gameAnswerSongSrc.elm.setAttribute('src', findSoundSrc(elm))
         renderingArgumentsImport.gameAnswerName.elm.textContent = elm.lastChild.textContent
     }
     findSoundSrc(elm);
@@ -131,14 +112,10 @@ export function ChooseOption(elm) {
 function findSoundSrc(elm) {
 
     let songName = elm.lastChild.textContent
-    // console.log('014 songName', songName)
     let muzAlbum = muzAlbumNumber
-    // console.log('015 songName', muzAlbum)
 
     for (let i in muzAlbum) {
-        // console.log('-', i)
         if (muzAlbum[i].name === songName) {
-            console.log('016', muzAlbumNumber[i].audio)
             renderingArgumentsImport.gameAnswerSongControls.elm.src =
                 muzAlbumNumber[i].audio
         }

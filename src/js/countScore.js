@@ -2,9 +2,6 @@ import {renderingArgumentsImport} from "./renderQuest";
 import {gameInfo} from "./nextLevel";
 
 export function countScore() {
-
-
-
     let calculation = {
         varMiss: 5
     }
@@ -17,8 +14,6 @@ export function countScore() {
         renderingArgumentsImport.gameVariant5Mark.elm,
         renderingArgumentsImport.gameVariant6Mark.elm]
 
-    console.log('028', renderingArgumentsImport.gameVariant1Mark.elm.classList)
-
     allVarMarks.forEach((elm)=>{
         if ( Array.from(elm.classList).includes('fa-circle-xmark')){
             calculation.varMiss = calculation.varMiss - 1
@@ -26,8 +21,6 @@ export function countScore() {
     })
 
     gameInfo.totalScore += calculation.varMiss
-    console.log('026 varMiss', calculation.varMiss )
-
 }
 
 

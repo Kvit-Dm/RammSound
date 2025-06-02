@@ -6,14 +6,11 @@ import {startGameBtn} from "./renderQuest";
 
 export let renderFinalScoreImport
 
-
 export function showFinalScore(){
-  console.log( '022')
   showFinalScoreImport.gameBody.remove()
   renderFinalScoreElements()
   renderFinalScoreNumber()
   chendgeHeaderScore()
-
  }
 
 function renderFinalScoreElements(){
@@ -57,7 +54,7 @@ function renderFinalScoreElements(){
         'REPLAY'
     )
     finalScoreReplayBtn.setOnClick(()=>{
-        reranWholeNewGame()
+        rerunWholeNewGame()
     })
 
  renderFinalScoreImport = {
@@ -67,36 +64,35 @@ function renderFinalScoreElements(){
  }
 }
 
-
-
 function renderFinalScoreNumber(){
     renderFinalScoreImport.finalScoreScoreNumber.elm.textContent = gameInfo.totalScore
     if (gameInfo.totalScore === 40){
-        renderFinalScoreImport.finalScoreResume.elm.textContent = 'YOU HAVE PROVEN THAT YOU ARE A REAL RAMMSTEIN FAN'
+        renderFinalScoreImport.finalScoreResume.elm.textContent = 'Undeniably, you are Rammstein fan to the core!'
+    }
+    if (gameInfo.totalScore <= 36){
+        renderFinalScoreImport.finalScoreResume.elm.textContent = 'You’ve got potential — now sharpen it.'
+    }
+    if (gameInfo.totalScore <= 33){
+        renderFinalScoreImport.finalScoreResume.elm.textContent = 'That was cute. Now do it for real.'
+    }
+     if (gameInfo.totalScore <= 30){
+        renderFinalScoreImport.finalScoreResume.elm.textContent = 'Nice try, rookie.'
     }
 }
 
 function chendgeHeaderScore(){
-    console.log('031', 'fun chendgeHeaderScore' )
     // this fun hide and show heder score when resoult stage on
     if (gameInfo.showScoreStatus){
         renderingArgumentsImport.gameScoreText.elm.classList.add('dsp-none')
         renderingArgumentsImport.gameScoreNumber.elm.classList.add('dsp-none')
-        console.log('032', renderingArgumentsImport.gameScoreText.elm.classList )
     } else {
         renderingArgumentsImport.gameScoreText.elm.classList.remove('dsp-none')
         renderingArgumentsImport.gameScoreNumber.elm.classList.remove('dsp-none')
-        console.log('033',  renderingArgumentsImport.gameScoreText.elm.classList )
     }
-
 }
 
-function reranWholeNewGame(){
-
+function rerunWholeNewGame(){
     cleanFinalScoreStage()
-    console.log('034', 'chek')
-
-
     gameInfo.findAnswer = false
     gameInfo.gameAlbumNumber = 0
     gameInfo.showScoreStatus = false
@@ -107,5 +103,5 @@ function reranWholeNewGame(){
 function   cleanFinalScoreStage(){
     showFinalScoreImport.gameHeader.elm.remove()
     showFinalScoreImport.finalScore.elm.remove()
-    showFinalScoreImport.gameFooter.elm.remove()
+    // showFinalScoreImport.gameFooter.elm.remove()
 }

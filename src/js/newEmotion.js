@@ -38,9 +38,6 @@ export function newEmotion() {
         previous = newM
         return  newM
     }
-
-    return console.log('ERROR')
-
 }
 
 

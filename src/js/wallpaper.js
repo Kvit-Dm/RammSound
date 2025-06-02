@@ -20,28 +20,55 @@ import wp019 from '../img/wallpaper/019.jpg';
 import wp020 from '../img/wallpaper/020.jpg';
 import {mainDiv} from "../index";
 
-const wallpaperList = [wp001,wp002,wp003,wp004,wp005,wp006,wp007,wp008,wp009,wp010,wp011,wp012,wp013,wp014,wp015, wp016, wp017, wp018, wp019, wp020]
-
+const wallpaperList = [wp001, wp002, wp003, wp004, wp005, wp006, wp007, wp008, wp009, wp010, wp011, wp012, wp013, wp014, wp015, wp016, wp017, wp018, wp019, wp020]
 
 import ElementMaker from "./element-maker";
-const backGroundImg = new ElementMaker(
-    mainDiv.elm ,
+
+const WallpaperContainer = new ElementMaker(
+    mainDiv.elm,
+    'div',
+    'wallpaper-container',
+);
+
+const bgImg1 = new ElementMaker(
+    WallpaperContainer.elm,
     'img',
-    'background-image',
+    'bg-img',
     '',
     'src',
-    wp001);
+);
 
-function change_wallpaper(turn){
+const bgImg2 = new ElementMaker(
+    WallpaperContainer.elm,
+    'img',
+    'bg-img',
+    '',
+    'src',
+);
 
-        setTimeout(()=>{
-            if(wallpaperList[turn] === undefined) turn = 0;
-            backGroundImg.elm.src = wallpaperList[turn];
-            turn++
-            change_wallpaper(turn)
-            // console.log('time period', turn)
-        },3000)
-    }
+
+let current = bgImg1.elm;
+let next = bgImg2.elm;
+
+function change_wallpaper(turn = 0) {
+    if (wallpaperList[turn] === undefined) turn = 0;
+
+    next.src = wallpaperList[turn];
+    next.classList.remove('loaded');
+
+    next.onload = () => {
+        // Show new image
+        next.classList.add('loaded');
+
+        // Hide current image
+        current.classList.remove('loaded');
+
+        // Swap references
+        [current, next] = [next, current];
+    };
+
+    setTimeout(() => change_wallpaper(turn + 1), 7000);
+}
 
 change_wallpaper(1)
 

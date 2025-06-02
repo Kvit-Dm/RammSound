@@ -5,9 +5,7 @@ import '../sass css/main.sass'
 import {renderNextLvl, ChooseOption} from './nextLevel'
 
 
-
-export function startGameBtn( ) {
-    // console.log('006', muzAlbumNumber )
+export function startGameBtn() {
     startBlock.remove()
 
     const gameBlock = new Elm(
@@ -33,7 +31,6 @@ export function startGameBtn( ) {
         gameHeader.elm,
         'p',
         'header-score-block',
-
     )
 
     const gameScoreText = new Elm(
@@ -177,17 +174,14 @@ export function startGameBtn( ) {
         'div',
         'game-variant border-effect'
     )
-    gameVariant1.setOnClick(()=>ChooseOption(gameVariant1.elm))
+    gameVariant1.setOnClick(() => ChooseOption(gameVariant1.elm))
 
-
-    // console.log('010', gameVariant1.elm.children)
     const gameVariant1Mark = new Elm(
         gameVariant1.elm,
         'i',
         'fa-regular fa-circle  mark-all',
         ''
     )
-    // console.log('011', gameVariant1.elm.children)
 
     const gameVariant1Name = new Elm(
         gameVariant1.elm,
@@ -201,7 +195,7 @@ export function startGameBtn( ) {
         'game-variant border-effect',
         ''
     )
-    gameVariant2.setOnClick(()=>ChooseOption(gameVariant2.elm))
+    gameVariant2.setOnClick(() => ChooseOption(gameVariant2.elm))
 
     const gameVariant2Mark = new Elm(
         gameVariant2.elm,
@@ -223,7 +217,7 @@ export function startGameBtn( ) {
         'game-variant border-effect',
         ''
     )
-    gameVariant3.setOnClick(()=>ChooseOption(gameVariant3.elm))
+    gameVariant3.setOnClick(() => ChooseOption(gameVariant3.elm))
 
     const gameVariant3Mark = new Elm(
         gameVariant3.elm,
@@ -244,7 +238,7 @@ export function startGameBtn( ) {
         'game-variant border-effect',
         ''
     )
-    gameVariant4.setOnClick(()=>ChooseOption(gameVariant4.elm ))
+    gameVariant4.setOnClick(() => ChooseOption(gameVariant4.elm))
 
     const gameVariant4Mark = new Elm(
         gameVariant4.elm,
@@ -265,7 +259,7 @@ export function startGameBtn( ) {
         'game-variant border-effect',
         ''
     )
-    gameVariant5.setOnClick(()=>ChooseOption(gameVariant5.elm))
+    gameVariant5.setOnClick(() => ChooseOption(gameVariant5.elm))
 
     const gameVariant5Mark = new Elm(
         gameVariant5.elm,
@@ -286,7 +280,7 @@ export function startGameBtn( ) {
         'game-variant border-effect',
         ''
     )
-    gameVariant6.setOnClick(()=>ChooseOption(gameVariant6.elm ))
+    gameVariant6.setOnClick(() => ChooseOption(gameVariant6.elm))
 
     const gameVariant6Mark = new Elm(
         gameVariant6.elm,
@@ -314,13 +308,11 @@ export function startGameBtn( ) {
         'game-answer__emotion border-effect '
     )
 
-
     const gameAnswerInfo = new Elm(
         gameAnswer.elm,
         'div',
         'game-answer__info-block '
     )
-
 
     const gameAnswerName = new Elm(
         gameAnswerInfo.elm,
@@ -328,13 +320,13 @@ export function startGameBtn( ) {
         'game-answer__name ',
         'Name'
     )
+
     const gameAnswerAlbumName = new Elm(
         gameAnswerInfo.elm,
         'p',
         'game-answer__album-name ',
         'Album name'
     )
-
 
     const gameAnswerSongControls = new Elm(
         gameAnswer.elm,
@@ -352,7 +344,6 @@ export function startGameBtn( ) {
         '',
     )
 
-
     const gameNextLvl = new Elm(
         gameBody.elm,
         '',
@@ -360,23 +351,18 @@ export function startGameBtn( ) {
         'Next Level'
     )
 
-
-    const gameFooter = new Elm(
-        gameBlock.elm,
-        '',
-        'game-footer midl-block border-effect elm-background'
-    )
-
-    const footerInfo = new Elm(
-        gameFooter.elm,
-        'p',
-        'footer-info',
-        '2022'
-    )
-
+    // const gameFooter = new Elm(
+    //     gameBlock.elm,
+    //     '',
+    //     'game-footer midl-block border-effect elm-background'
+    // )
     //
-
-
+    // const footerInfo = new Elm(
+    //     gameFooter.elm,
+    //     'p',
+    //     'footer-info',
+    //     '2022'
+    // )
 
     renderingArgumentsImport = {
 
@@ -417,27 +403,20 @@ export function startGameBtn( ) {
         gameScoreNumber,
         gameNextLvl,
         gameScoreText,
-
-
-
     }
 
     showFinalScoreImport = {
         finalScore,
         gameHeader,
         gameBody,
-        gameFooter
-
+        // gameFooter
     }
 
-    gameNextLvl.setOnClick(()=>renderNextLvl())
+    gameNextLvl.setOnClick(() => renderNextLvl())
     renderNextLvl('first time')
 }
 
-
-
 export let renderingArgumentsImport
-
 export let showFinalScoreImport
 
 
